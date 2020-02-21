@@ -1,5 +1,3 @@
-Do not push to /master/ on GitHub.
-
 ****************
   CashMachine
 ****************
