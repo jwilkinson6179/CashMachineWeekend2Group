@@ -9,13 +9,14 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class PopupWindow {
-    public static void popup(String title, String warning)
+    public static void Popup(String title, String warning)
     {
         Stage window = new Stage();
 
         window.initModality(Modality.APPLICATION_MODAL);
         window.setTitle(title);
-        window.setMinHeight(250);
+        window.setMinWidth(300);
+        window.setMinHeight(200);
 
         Label label = new Label();
         label.setText(warning);

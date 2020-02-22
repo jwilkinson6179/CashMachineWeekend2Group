@@ -1,6 +1,7 @@
 package rocks.zipcode.atm.bank;
 
 import rocks.zipcode.atm.ActionResult;
+import rocks.zipcode.atm.PopupWindow;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -90,7 +91,7 @@ public class Bank {
         if (ok) {
             return ActionResult.success(account.getAccountData());
         } else {
-            return ActionResult.fail("Withdraw failed: " + amount + ". Account has: " + account.getBalance());
+            return ActionResult.fail(String.format("Withdraw failed: $%.2f. Account has: $%.2f", amount, account.getBalance()));
         }
     }
 }
