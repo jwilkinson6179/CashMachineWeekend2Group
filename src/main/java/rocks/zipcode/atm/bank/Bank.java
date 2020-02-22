@@ -91,8 +91,7 @@ public class Bank {
         if (ok) {
             return ActionResult.success(account.getAccountData());
         } else {
-            PopupWindow.Popup("Error", "Insufficient Balance");
-            return ActionResult.fail("Withdraw failed: " + amount + ". Account has: " + account.getBalance());
+            return ActionResult.fail(String.format("Withdraw failed: $%.2f. Account has: $%.2f", amount, account.getBalance()));
         }
     }
 }
