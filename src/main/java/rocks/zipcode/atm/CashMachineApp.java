@@ -16,15 +16,18 @@ import javafx.scene.layout.FlowPane;
  */
 public class CashMachineApp extends Application {
 
+    private Stage window;
+    Scene loginScene;
     private TextField field = new TextField();
     private CashMachine cashMachine = new CashMachine(new Bank());
 
-    private Parent createContent() {
+    private Parent userScene() {
         VBox vbox = new VBox(10);
         vbox.setPrefSize(600, 600);
 
         TextArea areaInfo = new TextArea();
 
+        // TODO: This is to login
         Button btnSubmit = new Button("Set Account ID");
         btnSubmit.setOnAction(e -> {
             int id = Integer.parseInt(field.getText());
@@ -33,6 +36,7 @@ public class CashMachineApp extends Application {
             areaInfo.setText(cashMachine.toString());
         });
 
+        // TODO: Alert user to enter a value > 0 if failed
         Button btnDeposit = new Button("Deposit");
         btnDeposit.setOnAction(e -> {
             Float amount = Float.parseFloat(field.getText());
@@ -41,6 +45,7 @@ public class CashMachineApp extends Application {
             areaInfo.setText(cashMachine.toString());
         });
 
+        // TODO: Alert user that they were unable to withdraw due to insufficient balance on failure
         Button btnWithdraw = new Button("Withdraw");
         btnWithdraw.setOnAction(e -> {
             Float amount = Float.parseFloat(field.getText());
@@ -49,6 +54,7 @@ public class CashMachineApp extends Application {
             areaInfo.setText(cashMachine.toString());
         });
 
+        // TODO: Should be logout instead.  Perhaps draw a new scene for the "Splash" screen asking for a login & pin?
         Button btnExit = new Button("Exit");
         btnExit.setOnAction(e -> {
             cashMachine.exit();
@@ -68,7 +74,11 @@ public class CashMachineApp extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        stage.setScene(new Scene(createContent()));
+        window = stage;
+
+
+
+        stage.setScene(new Scene(userScene()));
         stage.show();
     }
 
