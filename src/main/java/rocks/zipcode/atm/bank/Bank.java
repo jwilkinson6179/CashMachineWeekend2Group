@@ -1,6 +1,7 @@
 package rocks.zipcode.atm.bank;
 
 import rocks.zipcode.atm.ActionResult;
+import rocks.zipcode.atm.PopupWindow;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -90,6 +91,7 @@ public class Bank {
         if (ok) {
             return ActionResult.success(account.getAccountData());
         } else {
+            PopupWindow.Popup("Error", "Insufficient Balance");
             return ActionResult.fail("Withdraw failed: " + amount + ". Account has: " + account.getBalance());
         }
     }
