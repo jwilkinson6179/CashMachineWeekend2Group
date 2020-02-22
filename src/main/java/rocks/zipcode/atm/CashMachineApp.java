@@ -66,7 +66,6 @@ public class CashMachineApp extends Application {
             areaInfo.setText(cashMachine.toString());
         });
 
-
         btnLogout.setOnAction(e -> {
             cashMachine.exit();
             field.clear();
@@ -85,8 +84,8 @@ public class CashMachineApp extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-
             stage.setScene(new Scene(userScene()));
+
             stage.show();
     }
 
