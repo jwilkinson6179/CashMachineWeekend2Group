@@ -16,10 +16,14 @@ import javafx.scene.layout.FlowPane;
  */
 public class CashMachineApp extends Application {
 
+    private Stage window;
+    Scene loginScene;
     private TextField field = new TextField();
     private CashMachine cashMachine = new CashMachine(new Bank());
 
-    private Parent createContent() {
+
+    // TODO: Requires beautification
+    private Parent userScene() {
         VBox vbox = new VBox(10);
         vbox.setPrefSize(600, 600);
         FlowPane flowpane = new FlowPane();
@@ -80,7 +84,8 @@ public class CashMachineApp extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-            stage.setScene(new Scene(createContent()));
+            stage.setScene(new Scene(userScene()));
+
             stage.show();
     }
 
