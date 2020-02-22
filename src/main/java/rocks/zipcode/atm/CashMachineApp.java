@@ -21,6 +21,8 @@ public class CashMachineApp extends Application {
     private TextField field = new TextField();
     private CashMachine cashMachine = new CashMachine(new Bank());
 
+
+    // TODO: Requires beautification
     private Parent userScene() {
         VBox vbox = new VBox(10);
         vbox.setPrefSize(600, 600);
