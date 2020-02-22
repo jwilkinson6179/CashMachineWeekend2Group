@@ -22,54 +22,66 @@ public class CashMachineApp extends Application {
     private Parent createContent() {
         VBox vbox = new VBox(10);
         vbox.setPrefSize(600, 600);
-
+        FlowPane flowpane = new FlowPane();
         TextArea areaInfo = new TextArea();
+        Button btnDeposit = new Button("Deposit");
+        Button btnWithdraw = new Button("Withdraw");
+        Button btnLogout = new Button("Logout");
+        Button btnLogin = new Button("Login");
 
-        Button btnSubmit = new Button("Set Account ID");
-        btnSubmit.setOnAction(e -> {
+        btnLogin.setOnAction(e -> {
             int id = Integer.parseInt(field.getText());
             cashMachine.login(id);
+            field.clear();
 
-            areaInfo.setText(cashMachine.toString());
+            if(cashMachine.toString() != "Try account 1000 or 2000 and click submit.") {
+                flowpane.getChildren().add(btnDeposit);
+                flowpane.getChildren().add(btnWithdraw);
+                flowpane.getChildren().add(btnLogout);
+                flowpane.getChildren().removeAll(btnLogin);
+                areaInfo.setText(cashMachine.toString());
+            } else {
+                areaInfo.setText("Enter Valid Account ID and Click Login.");
+            }
+
         });
 
-        Button btnDeposit = new Button("Deposit");
         btnDeposit.setOnAction(e -> {
             Float amount = Float.parseFloat(field.getText());
             cashMachine.deposit(amount);
+            field.clear();
 
             areaInfo.setText(cashMachine.toString());
         });
 
-        Button btnWithdraw = new Button("Withdraw");
         btnWithdraw.setOnAction(e -> {
             Float amount = Float.parseFloat(field.getText());
             cashMachine.withdraw(amount);
+            field.clear();
 
             areaInfo.setText(cashMachine.toString());
         });
 
-        Button btnExit = new Button("Exit");
-        btnExit.setOnAction(e -> {
+        btnLogout.setOnAction(e -> {
             cashMachine.exit();
+            field.clear();
 
-            areaInfo.setText(cashMachine.toString());
+            areaInfo.setText("You have successfully logged out. \nHave a nice Day!");
+            flowpane.getChildren().removeAll(btnDeposit,btnWithdraw,btnLogout);
+            vbox.getChildren().removeAll(field);
         });
 
-        FlowPane flowpane = new FlowPane();
 
-        flowpane.getChildren().add(btnSubmit);
-        flowpane.getChildren().add(btnDeposit);
-        flowpane.getChildren().add(btnWithdraw);
-        flowpane.getChildren().add(btnExit);
+        flowpane.getChildren().add(btnLogin);
+
         vbox.getChildren().addAll(field, flowpane, areaInfo);
         return vbox;
     }
 
     @Override
     public void start(Stage stage) throws Exception {
-        stage.setScene(new Scene(createContent()));
-        stage.show();
+            stage.setScene(new Scene(createContent()));
+            stage.show();
     }
 
     public static void main(String[] args) {
