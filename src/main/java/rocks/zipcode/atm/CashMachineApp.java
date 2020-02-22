@@ -1,5 +1,6 @@
 package rocks.zipcode.atm;
 
+import javafx.scene.effect.DropShadow;
 import rocks.zipcode.atm.bank.Bank;
 import javafx.application.Application;
 import javafx.scene.Parent;
@@ -30,6 +31,11 @@ public class CashMachineApp extends Application {
         Button btnWithdraw = new Button("Withdraw");
         Button btnLogout = new Button("Logout");
         Button btnLogin = new Button("Login");
+        btnDeposit.setStyle("-fx-background-color: #3c8aff;-fx-border-width: 2px;-fx-text-fill: #ff1815 ");
+        btnWithdraw.setStyle("-fx-background-color: #10ff4e; ");
+        btnLogout.setStyle("-fx-border-color: #ff0000; -fx-border-width: 2px;-fx-text-fill: #ff1815");
+        btnLogout.setTranslateX(340);
+        btnWithdraw.setTranslateX(10);
 
         btnLogin.setOnAction(e -> {
             int id = Integer.parseInt(field.getText());
