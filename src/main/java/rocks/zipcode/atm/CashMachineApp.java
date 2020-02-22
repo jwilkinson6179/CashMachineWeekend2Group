@@ -16,8 +16,6 @@ import javafx.scene.layout.FlowPane;
  */
 public class CashMachineApp extends Application {
 
-    private Stage window;
-    Scene loginScene;
     private TextField field = new TextField();
     private CashMachine cashMachine = new CashMachine(new Bank());
 
