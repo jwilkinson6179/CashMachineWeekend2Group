@@ -36,7 +36,7 @@ public class CashMachineApp extends Application {
         grid2.setPadding(new Insets(50, 50, 50, 50));
         grid2.setVgap(8);
         grid2.setHgap(10);
-        grid2.setStyle("-fx-background-image: url(\"File:loginBackground.png\");");
+        grid2.setStyle("-fx-background-image: url(\"burning-sky.jpg\");");
 
 
         Label withdrawLabel = new Label("WITHDRAW AMOUNT: ");
