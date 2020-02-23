@@ -20,7 +20,6 @@ public class CashMachineApp extends Application {
     private CashMachine cashMachine = new CashMachine(new Bank());
     Stage window;
 
-
     // TODO: Requires beautification
     private Parent userScene() {
         VBox vbox = new VBox(10);
@@ -83,6 +82,18 @@ public class CashMachineApp extends Application {
 
         Button btnLogin = new Button("Log In");
         GridPane.setConstraints(btnLogin, 1, 2);
+
+        //btnLogin.setStyle("-fx-background-color: linear-gradient(#f0ff35, #a9ff00), radial-gradient(center 50% -40%, radius 200%, #b8ee36 45%, #80c800 50%); -fx-background-radius: 6, 5; -fx-background-insets: 0, 1; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 ); -fx-text-fill: #395306;");
+        btnLogin.setStyle("-fx-background-color: \n" +
+                "        #000000,\n" +
+                "        linear-gradient(#7ebcea, #2f4b8f),\n" +
+                "        linear-gradient(#426ab7, #263e75),\n" +
+                "        linear-gradient(#395cab, #223768);\n" +
+                "    -fx-background-insets: 0,1,2,3;\n" +
+                "    -fx-background-radius: 3,2,2,2;\n" +
+                "    -fx-padding: 12 30 12 30;\n" +
+                "    -fx-text-fill: white;\n" +
+                "    -fx-font-size: 12px;");
 
         btnLogin.setOnAction(e ->
         {
