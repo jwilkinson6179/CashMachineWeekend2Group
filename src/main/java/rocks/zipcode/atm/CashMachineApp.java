@@ -61,6 +61,7 @@ public class CashMachineApp extends Application {
         btnLogout.setOnAction(e -> {
             cashMachine.exit();
             Scene loginSplash = new Scene(loginScene(), 300, 200);
+            window.setScene(loginSplash);
         });
 
         return vbox;
