@@ -1,6 +1,9 @@
 package rocks.zipcode.atm;
 
+import javafx.geometry.Insets;
+import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.layout.GridPane;
 import rocks.zipcode.atm.bank.Bank;
 import javafx.application.Application;
 import javafx.scene.Parent;
@@ -19,6 +22,7 @@ public class CashMachineApp extends Application {
 
     private TextField field = new TextField();
     private CashMachine cashMachine = new CashMachine(new Bank());
+    Stage window;
 
 
     // TODO: Requires beautification
@@ -86,11 +90,49 @@ public class CashMachineApp extends Application {
         return vbox;
     }
 
-    @Override
-    public void start(Stage stage) throws Exception {
-            stage.setScene(new Scene(userScene()));
+    private Parent loginScene()
+    {
+        GridPane grid = new GridPane();
+        grid.setPadding(new Insets(10, 10, 10, 10));
+        grid.setVgap(8);
+        grid.setHgap(10);
 
-            stage.show();
+        Label acctLabel = new Label("Account Number: ");
+        GridPane.setConstraints(acctLabel, 0, 0);
+        TextField acctInput = new TextField();
+        GridPane.setConstraints(acctInput, 1, 0);
+
+        Label pinLabel = new Label("PIN: ");
+        GridPane.setConstraints(pinLabel, 0, 1);
+        TextField pinInput = new TextField();
+        GridPane.setConstraints(pinInput, 1, 1);
+
+        Button btnLogin = new Button("Log In");
+        GridPane.setConstraints(btnLogin, 1, 2);
+
+        btnLogin.setOnAction(e ->
+        {
+            int id = Integer.parseInt(acctInput.getText());
+            cashMachine.login(id);
+            field.clear();
+
+            if(cashMachine.toString() != "Try account 1000 or 2000 and click submit.") {
+                window.setScene(new Scene(userScene()));
+            }
+        });
+
+        grid.getChildren().addAll(acctLabel, acctInput, pinLabel, pinInput, btnLogin);
+
+        return grid;
+    }
+
+    @Override
+    public void start(Stage stage) throws Exception
+    {
+        window = stage;
+        window.setScene(new Scene(loginScene(), 300, 200));
+
+        window.show();
     }
 
     public static void main(String[] args) {

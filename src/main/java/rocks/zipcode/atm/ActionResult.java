@@ -21,7 +21,6 @@ public class ActionResult<T> {
     }
 
     public String getErrorMessage() {
-        PopupWindow.Popup("Error", errorMessage);
         return errorMessage;
     }
 
