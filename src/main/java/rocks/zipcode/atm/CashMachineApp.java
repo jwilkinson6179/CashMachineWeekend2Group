@@ -25,35 +25,12 @@ public class CashMachineApp extends Application {
 
     // TODO: Requires beautificati
     private Parent userScene() {
-//        VBox vbox = new VBox(10);
-//        vbox.setPrefSize(600, 600);
-//        FlowPane flowpane = new FlowPane();
-//        TextArea areaInfo = new TextArea();
-//        Button btnDeposit = new Button("Deposit");
-//        Button btnWithdraw = new Button("Withdraw");
-//        Button btnLogout = new Button("Logout");
+
         GridPane grid2 = new GridPane();
         grid2.setPadding(new Insets(70, 95, 95, 70));
         grid2.setVgap(8);
         grid2.setHgap(10);
         grid2.setStyle("-fx-background-image: url(\"bankapp.jpg\");");
-
-
-        Label withdrawLabel = new Label("WITHDRAW AMOUNT: ");
-        withdrawLabel.setStyle("-fx-font-size: 12px;" +
-                "-fx-font-weight: bold;" +
-                "-fx-text-fill: #333333;");
-        GridPane.setConstraints(withdrawLabel, 0, 0);
-        TextField withdrawInput = new TextField();
-        GridPane.setConstraints(withdrawInput, 1, 0);
-
-        Label depositLabel = new Label("DEPOSIT AMOUNT: ");
-        depositLabel.setStyle("-fx-font-size: 12px;" +
-                "-fx-font-weight: bold;" +
-                "-fx-text-fill: #333333;");
-        GridPane.setConstraints(depositLabel, 0, 1);
-        PasswordField depositInput = new PasswordField();
-        GridPane.setConstraints(depositInput, 1, 1);
 
 
         Button btnDeposit = new Button("Deposit");
@@ -99,14 +76,7 @@ public class CashMachineApp extends Application {
                 "    -fx-padding: 10 20 10 20;");
 
 
-//        btnDeposit.setStyle("-fx-background-color: #3c8aff;-fx-border-width: 2px;-fx-text-fill: #ff1815 ");
-//        btnWithdraw.setStyle("-fx-background-color: #10ff4e; ");
-//        btnLogout.setStyle("-fx-border-color: #ff0000; -fx-border-width: 2px;-fx-text-fill: #ff1815");
-//        btnLogout.setTranslateX(340);
-//        btnWithdraw.setTranslateX(10);
-//
-//        areaInfo.setText(cashMachine.toString());
-//
+
         grid2.getChildren().addAll(field, btnDeposit, btnWithdraw, btnLogout);
 
         btnDeposit.setOnAction(e -> {
