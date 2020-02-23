@@ -37,6 +37,7 @@ public class CashMachineApp extends Application {
         double width = 200;
         field.setPrefHeight(height);
         field.setPrefWidth(width);
+        field.setStyle("-fx-background-color: #ffd65b, #e68400,#ffef84, #f2ba44,#ffea6a, #efaa22");
 
 
 
