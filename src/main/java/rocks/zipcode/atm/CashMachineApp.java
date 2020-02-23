@@ -19,7 +19,7 @@ import javafx.stage.Stage;
  */
 public class CashMachineApp extends Application {
 
-    private TextField field = new TextField();
+    private TextArea field = new TextArea();
     private CashMachine cashMachine = new CashMachine(new Bank());
     Stage window;
 
@@ -33,10 +33,10 @@ public class CashMachineApp extends Application {
 //        Button btnWithdraw = new Button("Withdraw");
 //        Button btnLogout = new Button("Logout");
         GridPane grid2 = new GridPane();
-        grid2.setPadding(new Insets(50, 50, 50, 50));
+        grid2.setPadding(new Insets(70, 95, 95, 70));
         grid2.setVgap(8);
         grid2.setHgap(10);
-        grid2.setStyle("-fx-background-image: url(\"burning-sky.jpg\");");
+        grid2.setStyle("-fx-background-image: url(\"bankapp.jpg\");");
 
 
         Label withdrawLabel = new Label("WITHDRAW AMOUNT: ");
@@ -61,7 +61,7 @@ public class CashMachineApp extends Application {
         Button btnWithdraw = new Button("Withdraw");
         GridPane.setConstraints(btnWithdraw, 1, 3);
         Button btnLogout = new Button("Log Out");
-        GridPane.setConstraints(btnLogout, 1, 8);
+        GridPane.setConstraints(btnLogout, 4, 35);
 
         btnDeposit.setStyle("    -fx-background-color: \n" +
                 "        linear-gradient(#ffd65b, #e68400),\n" +
@@ -99,7 +99,6 @@ public class CashMachineApp extends Application {
                 "    -fx-padding: 10 20 10 20;");
 
 
-
 //        btnDeposit.setStyle("-fx-background-color: #3c8aff;-fx-border-width: 2px;-fx-text-fill: #ff1815 ");
 //        btnWithdraw.setStyle("-fx-background-color: #10ff4e; ");
 //        btnLogout.setStyle("-fx-border-color: #ff0000; -fx-border-width: 2px;-fx-text-fill: #ff1815");
@@ -108,22 +107,22 @@ public class CashMachineApp extends Application {
 //
 //        areaInfo.setText(cashMachine.toString());
 //
-       grid2.getChildren().addAll(field, btnDeposit, btnWithdraw, btnLogout);
-//
-//        btnDeposit.setOnAction(e -> {
-//            Float amount = Float.parseFloat(field.getText());
-//            cashMachine.deposit(amount);
-//            field.clear();
+        grid2.getChildren().addAll(field, btnDeposit, btnWithdraw, btnLogout);
 
-           // areaInfo.setText(cashMachine.toString());
-        ;
+        btnDeposit.setOnAction(e -> {
+            Float amount = Float.parseFloat(field.getText());
+            cashMachine.deposit(amount);
+            field.clear();
+
+         field.setText(cashMachine.toString());
+    });
 
         btnWithdraw.setOnAction(e -> {
             Float amount = Float.parseFloat(field.getText());
             cashMachine.withdraw(amount);
             field.clear();
 
-            //.setText(cashMachine.toString());
+            field.setText(cashMachine.toString());
         });
 
         btnLogout.setOnAction(e -> {
