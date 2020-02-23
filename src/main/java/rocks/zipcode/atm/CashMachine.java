@@ -69,7 +69,7 @@ public class CashMachine {
                 throw new RuntimeException(errorMessage);
             }
         } catch (Exception e) {
-            PopupWindow.Popup("Error", e.getMessage());
+            PopupWindow.Popup("Error", "⚠" + e.getMessage());
             System.out.println("Error: " + e.getMessage());
         }
     }
