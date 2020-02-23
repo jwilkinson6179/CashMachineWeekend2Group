@@ -29,7 +29,7 @@ public class CashMachineApp extends Application {
     private Parent userScene() {
 
         GridPane grid2 = new GridPane();
-        grid2.setPadding(new Insets(10, 10, 10, 30));
+        grid2.setPadding(new Insets(10, 10, 35, 10));
         grid2.setVgap(8);
         grid2.setHgap(10);
         grid2.setStyle("-fx-background-image: url(\"bankapp.jpg\");");
@@ -42,11 +42,11 @@ public class CashMachineApp extends Application {
 
 
         Button btnDeposit = new Button("Deposit");
-        GridPane.setConstraints(btnDeposit, 1, 2);
+        GridPane.setConstraints(btnDeposit, 2, 2);
         Button btnWithdraw = new Button("Withdraw");
-        GridPane.setConstraints(btnWithdraw, 1, 3);
+        GridPane.setConstraints(btnWithdraw, 2, 3);
         Button btnLogout = new Button("Log Out");
-        GridPane.setConstraints(btnLogout, 1, 25);
+        GridPane.setConstraints(btnLogout, 3, 20);
 
         btnDeposit.setStyle("    -fx-background-color: \n" +
                 "        linear-gradient(#ffd65b, #e68400),\n" +
@@ -115,7 +115,7 @@ public class CashMachineApp extends Application {
     private Parent loginScene()
     {
         GridPane grid = new GridPane();
-        grid.setPadding(new Insets(10, 10, 10, 10));
+        grid.setPadding(new Insets(10, 100, 10, 10));
         grid.setVgap(8);
         grid.setHgap(10);
         grid.setStyle("-fx-background-image: url(\"File:loginBackground.png\");");
