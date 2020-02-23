@@ -81,7 +81,13 @@ public class Bank {
         Account account = accounts.get(accountData.getId());
         account.deposit(amount);
 
-        return ActionResult.success(account.getAccountData());
+        if(amount > 0.00) {
+            return ActionResult.success(account.getAccountData());
+        }
+        else
+        {
+            return ActionResult.fail("Input a value greater than $0.00");
+        }
     }
 
     public ActionResult<AccountData> withdraw(AccountData accountData, Float amount) {
@@ -89,8 +95,13 @@ public class Bank {
         boolean ok = account.withdraw(amount);
 
         if (ok) {
-            return ActionResult.success(account.getAccountData());
-        } else {
+            if (amount > 0.00) {
+                return ActionResult.success(account.getAccountData());
+            } else {
+                return ActionResult.fail("Input a value greater than $0.00");
+            }
+        }
+        else {
             return ActionResult.fail(String.format("Withdraw failed: $%.2f. Account has: $%.2f", amount, account.getBalance()));
         }
     }
