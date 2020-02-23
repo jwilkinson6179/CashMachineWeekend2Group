@@ -20,6 +20,8 @@ import javafx.stage.Stage;
 public class CashMachineApp extends Application {
 
     private TextArea field = new TextArea();
+
+
     private CashMachine cashMachine = new CashMachine(new Bank());
     Stage window;
 
@@ -27,10 +29,15 @@ public class CashMachineApp extends Application {
     private Parent userScene() {
 
         GridPane grid2 = new GridPane();
-        grid2.setPadding(new Insets(70, 95, 95, 70));
+        grid2.setPadding(new Insets(10, 10, 10, 30));
         grid2.setVgap(8);
         grid2.setHgap(10);
         grid2.setStyle("-fx-background-image: url(\"bankapp.jpg\");");
+        double height = 83;
+        double width = 200;
+        field.setPrefHeight(height);
+        field.setPrefWidth(width);
+
 
 
         Button btnDeposit = new Button("Deposit");
@@ -38,7 +45,7 @@ public class CashMachineApp extends Application {
         Button btnWithdraw = new Button("Withdraw");
         GridPane.setConstraints(btnWithdraw, 1, 3);
         Button btnLogout = new Button("Log Out");
-        GridPane.setConstraints(btnLogout, 4, 35);
+        GridPane.setConstraints(btnLogout, 1, 25);
 
         btnDeposit.setStyle("    -fx-background-color: \n" +
                 "        linear-gradient(#ffd65b, #e68400),\n" +
