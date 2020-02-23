@@ -25,37 +25,105 @@ public class CashMachineApp extends Application {
 
     // TODO: Requires beautificati
     private Parent userScene() {
-        VBox vbox = new VBox(10);
-        vbox.setPrefSize(600, 600);
-        FlowPane flowpane = new FlowPane();
-        TextArea areaInfo = new TextArea();
+//        VBox vbox = new VBox(10);
+//        vbox.setPrefSize(600, 600);
+//        FlowPane flowpane = new FlowPane();
+//        TextArea areaInfo = new TextArea();
+//        Button btnDeposit = new Button("Deposit");
+//        Button btnWithdraw = new Button("Withdraw");
+//        Button btnLogout = new Button("Logout");
+        GridPane grid2 = new GridPane();
+        grid2.setPadding(new Insets(50, 50, 50, 50));
+        grid2.setVgap(8);
+        grid2.setHgap(10);
+        grid2.setStyle("-fx-background-image: url(\"File:loginBackground.png\");");
+
+
+        Label withdrawLabel = new Label("WITHDRAW AMOUNT: ");
+        withdrawLabel.setStyle("-fx-font-size: 12px;" +
+                "-fx-font-weight: bold;" +
+                "-fx-text-fill: #333333;");
+        GridPane.setConstraints(withdrawLabel, 0, 0);
+        TextField withdrawInput = new TextField();
+        GridPane.setConstraints(withdrawInput, 1, 0);
+
+        Label depositLabel = new Label("DEPOSIT AMOUNT: ");
+        depositLabel.setStyle("-fx-font-size: 12px;" +
+                "-fx-font-weight: bold;" +
+                "-fx-text-fill: #333333;");
+        GridPane.setConstraints(depositLabel, 0, 1);
+        PasswordField depositInput = new PasswordField();
+        GridPane.setConstraints(depositInput, 1, 1);
+
+
         Button btnDeposit = new Button("Deposit");
+        GridPane.setConstraints(btnDeposit, 1, 2);
         Button btnWithdraw = new Button("Withdraw");
-        Button btnLogout = new Button("Logout");
-        btnDeposit.setStyle("-fx-background-color: #3c8aff;-fx-border-width: 2px;-fx-text-fill: #ff1815 ");
-        btnWithdraw.setStyle("-fx-background-color: #10ff4e; ");
-        btnLogout.setStyle("-fx-border-color: #ff0000; -fx-border-width: 2px;-fx-text-fill: #ff1815");
-        btnLogout.setTranslateX(340);
-        btnWithdraw.setTranslateX(10);
+        GridPane.setConstraints(btnWithdraw, 1, 3);
+        Button btnLogout = new Button("Log Out");
+        GridPane.setConstraints(btnLogout, 1, 8);
 
-        areaInfo.setText(cashMachine.toString());
+        btnDeposit.setStyle("    -fx-background-color: \n" +
+                "        linear-gradient(#ffd65b, #e68400),\n" +
+                "        linear-gradient(#ffef84, #f2ba44),\n" +
+                "        linear-gradient(#ffea6a, #efaa22),\n" +
+                "        linear-gradient(#ffe657 0%, #f8c202 50%, #eea10b 100%),\n" +
+                "        linear-gradient(from 0% 0% to 15% 50%, rgba(255,255,255,0.9), rgba(255,255,255,0));\n" +
+                "    -fx-background-radius: 30;\n" +
+                "    -fx-background-insets: 0,1,2,3,0;\n" +
+                "    -fx-text-fill: #654b00;\n" +
+                "    -fx-font-weight: bold;\n" +
+                "    -fx-font-size: 14px;\n" +
+                "    -fx-padding: 10 20 10 20;");
 
-        vbox.getChildren().addAll(field, flowpane, areaInfo, btnDeposit, btnWithdraw, btnLogout);
+        btnWithdraw.setStyle("    -fx-background-color: \n" +
+                "        linear-gradient(#ffd65b, #e68400),\n" +
+                "        linear-gradient(#ffef84, #f2ba44),\n" +
+                "        linear-gradient(#ffea6a, #efaa22),\n" +
+                "        linear-gradient(#ffe657 0%, #f8c202 50%, #eea10b 100%),\n" +
+                "        linear-gradient(from 0% 0% to 15% 50%, rgba(255,255,255,0.9), rgba(255,255,255,0));\n" +
+                "    -fx-background-radius: 30;\n" +
+                "    -fx-background-insets: 0,1,2,3,0;\n" +
+                "    -fx-text-fill: #654b00;\n" +
+                "    -fx-font-weight: bold;\n" +
+                "    -fx-font-size: 14px;\n" +
+                "    -fx-padding: 10 20 10 20;");
 
-        btnDeposit.setOnAction(e -> {
-            Float amount = Float.parseFloat(field.getText());
-            cashMachine.deposit(amount);
-            field.clear();
+        btnLogout.setStyle("    -fx-background-color: \n" +
+                "        linear-gradient(#ff5400, #be1d00);" +
+                "    -fx-background-radius: 30;\n" +
+                "    -fx-background-insets: 0,1,2,3,0;\n" +
+                "    -fx-text-fill: #654b00;\n" +
+                "    -fx-font-weight: bold;\n" +
+                "    -fx-font-size: 14px;\n" +
+                "    -fx-padding: 10 20 10 20;");
 
-            areaInfo.setText(cashMachine.toString());
-        });
+
+
+//        btnDeposit.setStyle("-fx-background-color: #3c8aff;-fx-border-width: 2px;-fx-text-fill: #ff1815 ");
+//        btnWithdraw.setStyle("-fx-background-color: #10ff4e; ");
+//        btnLogout.setStyle("-fx-border-color: #ff0000; -fx-border-width: 2px;-fx-text-fill: #ff1815");
+//        btnLogout.setTranslateX(340);
+//        btnWithdraw.setTranslateX(10);
+//
+//        areaInfo.setText(cashMachine.toString());
+//
+       grid2.getChildren().addAll(field, btnDeposit, btnWithdraw, btnLogout);
+//
+//        btnDeposit.setOnAction(e -> {
+//            Float amount = Float.parseFloat(field.getText());
+//            cashMachine.deposit(amount);
+//            field.clear();
+
+           // areaInfo.setText(cashMachine.toString());
+        ;
 
         btnWithdraw.setOnAction(e -> {
             Float amount = Float.parseFloat(field.getText());
             cashMachine.withdraw(amount);
             field.clear();
 
-            areaInfo.setText(cashMachine.toString());
+            //.setText(cashMachine.toString());
         });
 
         btnLogout.setOnAction(e -> {
@@ -64,7 +132,7 @@ public class CashMachineApp extends Application {
             window.setScene(loginSplash);
         });
 
-        return vbox;
+        return grid2;
     }
 
     private Parent loginScene()
