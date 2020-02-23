@@ -1,15 +1,12 @@
 package rocks.zipcode.atm;
 
 import javafx.geometry.Insets;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import rocks.zipcode.atm.bank.Bank;
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.layout.FlowPane;
@@ -81,7 +78,7 @@ public class CashMachineApp extends Application {
 
         Label pinLabel = new Label("PIN: ");
         GridPane.setConstraints(pinLabel, 0, 1);
-        TextField pinInput = new TextField();
+        PasswordField pinInput = new PasswordField();
         GridPane.setConstraints(pinInput, 1, 1);
 
         Button btnLogin = new Button("Log In");
