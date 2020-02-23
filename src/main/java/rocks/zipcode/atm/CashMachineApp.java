@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 import javafx.scene.layout.FlowPane;
 
 /**
- * @author ZipCodeWilmington
+ * @author ZipCodeWilmington -- Corey Williams, Sandy Setiawan, James Wilkinson, and Maurice Russ' fork
  */
 public class CashMachineApp extends Application {
 
