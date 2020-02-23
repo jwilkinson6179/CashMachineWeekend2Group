@@ -23,7 +23,7 @@ public class CashMachineApp extends Application {
     private CashMachine cashMachine = new CashMachine(new Bank());
     Stage window;
 
-    // TODO: Requires beautification
+    // TODO: Requires beautificati
     private Parent userScene() {
         VBox vbox = new VBox(10);
         vbox.setPrefSize(600, 600);
