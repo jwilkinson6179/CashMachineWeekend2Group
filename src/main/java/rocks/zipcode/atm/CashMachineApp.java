@@ -114,14 +114,16 @@ public class CashMachineApp extends Application {
         {
             int id = Integer.parseInt(acctInput.getText());
             int pin = Integer.parseInt(pinInput.getText());
-            if(cashMachine.getBank().getAccountByPin(pin, id)) {
+            if (cashMachine.getBank().getAccountByPin(pin, id)) {
                 cashMachine.login(id);
             }
             field.clear();
 
-            if(cashMachine.toString() != "Try account 1000 or 2000 and click submit.")
-            {
+
+            if(!cashMachine.toString().equals("Try account 1000 or 2000 and click submit.")) {
                 window.setScene(new Scene(userScene()));
+            } else {
+                PopupWindow.Popup("Error", "Invalid pin!\n Please try a different pin!");
             }
         });
 
