@@ -19,50 +19,50 @@ public class Bank {
         Float initialBalance = (float)0.0;
 
         accounts.put(1000, new BasicAccount(new AccountData(
-                1000, "Example 1", "example1@gmail.com", 500
+                1000, "Example 1", "example1@gmail.com", 500, 1111
         )));
 
         accounts.put(2000, new PremiumAccount(new AccountData(
-                2000, "Example 2", "example2@gmail.com", 200
+                2000, "Example 2", "example2@gmail.com", 200, 0000
         )));
 
         accounts.put(id, new PremiumAccount(new AccountData(
-                id, "James Wilkinson", "JWEmail54@geemail.com", initialBalance
-        )));
-        id++;
-
-        accounts.put(id, new PremiumAccount(new AccountData(
-                id, "Sandy Setiawan", "seti@yoohoo.com", initialBalance
+                id, "James Wilkinson", "JWEmail54@geemail.com", initialBalance, 5645
         )));
         id++;
 
         accounts.put(id, new PremiumAccount(new AccountData(
-                id, "Maurice Russ", "Moruss@udel.edu", initialBalance
+                id, "Sandy Setiawan", "seti@yoohoo.com", initialBalance, 9876
         )));
         id++;
 
         accounts.put(id, new PremiumAccount(new AccountData(
-                id, "Corey Williams", "cwilliams@un.gov", initialBalance
+                id, "Maurice Russ", "Moruss@udel.edu", initialBalance, 4355
+        )));
+        id++;
+
+        accounts.put(id, new PremiumAccount(new AccountData(
+                id, "Corey Williams", "cwilliams@un.gov", initialBalance, 9999
         )));
         id++;
 
         accounts.put(id, new BasicAccount(new AccountData(
-                id, "Paul Atredes", "maudib@arakkis.co.ak", initialBalance
+                id, "Paul Atredes", "maudib@arakkis.co.ak", initialBalance, 3498
         )));
         id++;
 
         accounts.put(id, new BasicAccount(new AccountData(
-                id, "Frodo Baggins", "BagEnd420@shire.com", initialBalance
+                id, "Frodo Baggins", "BagEnd420@shire.com", initialBalance, 3345
         )));
         id++;
 
         accounts.put(id, new BasicAccount(new AccountData(
-                id, "Luke Cage", "powerman@aliasinvestigations.com", initialBalance
+                id, "Luke Cage", "powerman@aliasinvestigations.com", initialBalance, 8765
         )));
         id++;
 
         accounts.put(id, new BasicAccount(new AccountData(
-                id, "Bugs Bunny", "bb1931@warner.com", initialBalance
+                id, "Bugs Bunny", "bb1931@warner.com", initialBalance, 4323
         )));
         id++;
     }
@@ -75,6 +75,17 @@ public class Bank {
         } else {
             return ActionResult.fail("No account with id: " + id + "\nTry account 1000 or 2000");
         }
+    }
+
+    public boolean getAccountByPin(int pin, int id) {
+        Account account = accounts.get(pin);
+    for(Map.Entry<Integer, Account> i : accounts.entrySet()){
+        if(i.getValue().getAccountData().getPin() == pin && i.getValue().getAccountData().getId() == id) {
+            return true;
+        }
+        }
+        return false;
+
     }
 
     public ActionResult<AccountData> deposit(AccountData accountData, Float amount) {

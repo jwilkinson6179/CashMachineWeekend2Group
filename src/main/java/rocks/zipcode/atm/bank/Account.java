@@ -38,6 +38,7 @@ public abstract class Account {
 
     private void updateBalance(Float newBalance) {
         accountData = new AccountData(accountData.getId(), accountData.getName(), accountData.getEmail(),
-                newBalance);
+                newBalance, accountData.getPin());
     }
+
 }
