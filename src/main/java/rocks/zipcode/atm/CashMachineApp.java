@@ -1,15 +1,18 @@
+// Blue wave image from VectorStock
+// https://www.vectorstock.com/royalty-free-vector/blue-wave-vector-60954
+
 package rocks.zipcode.atm;
 
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
-import javafx.scene.layout.GridPane;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.*;
 import rocks.zipcode.atm.bank.Bank;
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.scene.layout.FlowPane;
 
 /**
  * @author ZipCodeWilmington -- Corey Williams, Sandy Setiawan, James Wilkinson, and Maurice Russ' fork
@@ -57,7 +60,10 @@ public class CashMachineApp extends Application {
 
         btnLogout.setOnAction(e -> {
             cashMachine.exit();
-            window.setScene(new Scene(loginScene(), 300, 200));
+            Scene loginSplash = new Scene(loginScene(), 300, 200);
+            loginSplash.getStylesheets().add
+                    (CashMachineApp.class.getResource("Login.css").toExternalForm());
+            window.setScene(loginSplash);
         });
 
         return vbox;
@@ -69,6 +75,7 @@ public class CashMachineApp extends Application {
         grid.setPadding(new Insets(10, 10, 10, 10));
         grid.setVgap(8);
         grid.setHgap(10);
+        grid.setStyle("-fx-background-image: url(\"File:loginBackground.png\");");
 
         Label acctLabel = new Label("Account Number: ");
         GridPane.setConstraints(acctLabel, 0, 0);
