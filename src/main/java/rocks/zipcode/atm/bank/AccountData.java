@@ -8,14 +8,16 @@ public final class AccountData {
     private final int id;
     private final String name;
     private final String email;
+    private final int pin;
 
     private final Float balance;
 
-    AccountData(int id, String name, String email, float balance) {
+    AccountData(int id, String name, String email, float balance, int pin) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.balance = balance;
+        this.pin = pin;
     }
 
     public int getId() {
@@ -32,6 +34,10 @@ public final class AccountData {
 
     public Float getBalance() {
         return balance;
+    }
+
+    public int getPin() {
+        return pin;
     }
 
     @Override

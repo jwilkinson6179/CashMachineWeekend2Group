@@ -113,7 +113,10 @@ public class CashMachineApp extends Application {
         btnLogin.setOnAction(e ->
         {
             int id = Integer.parseInt(acctInput.getText());
-            cashMachine.login(id);
+            int pin = Integer.parseInt(pinInput.getText());
+            if(cashMachine.getBank().getAccountByPin(pin, id)) {
+                cashMachine.login(id);
+            }
             field.clear();
 
             if(cashMachine.toString() != "Try account 1000 or 2000 and click submit.")
