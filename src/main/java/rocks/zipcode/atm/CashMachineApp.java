@@ -78,11 +78,17 @@ public class CashMachineApp extends Application {
         grid.setStyle("-fx-background-image: url(\"File:loginBackground.png\");");
 
         Label acctLabel = new Label("Account Number: ");
+        acctLabel.setStyle("-fx-font-size: 12px;" +
+        "-fx-font-weight: bold;" +
+        "-fx-text-fill: #333333;");
         GridPane.setConstraints(acctLabel, 0, 0);
         TextField acctInput = new TextField();
         GridPane.setConstraints(acctInput, 1, 0);
 
         Label pinLabel = new Label("PIN: ");
+        pinLabel.setStyle("-fx-font-size: 12px;" +
+                "-fx-font-weight: bold;" +
+                "-fx-text-fill: #333333;");
         GridPane.setConstraints(pinLabel, 0, 1);
         PasswordField pinInput = new PasswordField();
         GridPane.setConstraints(pinInput, 1, 1);
