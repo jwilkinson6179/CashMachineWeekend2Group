@@ -2,7 +2,6 @@ package rocks.zipcode.atm;
 
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
-import javafx.scene.effect.DropShadow;
 import javafx.scene.layout.GridPane;
 import rocks.zipcode.atm.bank.Bank;
 import javafx.application.Application;
@@ -34,29 +33,15 @@ public class CashMachineApp extends Application {
         Button btnDeposit = new Button("Deposit");
         Button btnWithdraw = new Button("Withdraw");
         Button btnLogout = new Button("Logout");
-        Button btnLogin = new Button("Login");
         btnDeposit.setStyle("-fx-background-color: #3c8aff;-fx-border-width: 2px;-fx-text-fill: #ff1815 ");
         btnWithdraw.setStyle("-fx-background-color: #10ff4e; ");
         btnLogout.setStyle("-fx-border-color: #ff0000; -fx-border-width: 2px;-fx-text-fill: #ff1815");
         btnLogout.setTranslateX(340);
         btnWithdraw.setTranslateX(10);
 
-        btnLogin.setOnAction(e -> {
-            int id = Integer.parseInt(field.getText());
-            cashMachine.login(id);
-            field.clear();
+        areaInfo.setText(cashMachine.toString());
 
-            if(cashMachine.toString() != "Try account 1000 or 2000 and click submit.") {
-                flowpane.getChildren().add(btnDeposit);
-                flowpane.getChildren().add(btnWithdraw);
-                flowpane.getChildren().add(btnLogout);
-                flowpane.getChildren().removeAll(btnLogin);
-                areaInfo.setText(cashMachine.toString());
-            } else {
-                areaInfo.setText("Enter Valid Account ID and Click Login.");
-            }
-
-        });
+        vbox.getChildren().addAll(field, flowpane, areaInfo, btnDeposit, btnWithdraw, btnLogout);
 
         btnDeposit.setOnAction(e -> {
             Float amount = Float.parseFloat(field.getText());
@@ -76,17 +61,9 @@ public class CashMachineApp extends Application {
 
         btnLogout.setOnAction(e -> {
             cashMachine.exit();
-            field.clear();
-
-            areaInfo.setText("You have successfully logged out. \nHave a nice Day!");
-            flowpane.getChildren().removeAll(btnDeposit,btnWithdraw,btnLogout);
-            vbox.getChildren().removeAll(field);
+            window.setScene(new Scene(loginScene(), 300, 200));
         });
 
-
-        flowpane.getChildren().add(btnLogin);
-
-        vbox.getChildren().addAll(field, flowpane, areaInfo);
         return vbox;
     }
 
@@ -116,7 +93,8 @@ public class CashMachineApp extends Application {
             cashMachine.login(id);
             field.clear();
 
-            if(cashMachine.toString() != "Try account 1000 or 2000 and click submit.") {
+            if(cashMachine.toString() != "Try account 1000 or 2000 and click submit.")
+            {
                 window.setScene(new Scene(userScene()));
             }
         });
