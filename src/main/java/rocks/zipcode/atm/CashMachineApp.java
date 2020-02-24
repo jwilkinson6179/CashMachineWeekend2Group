@@ -196,6 +196,9 @@ public class CashMachineApp extends Application {
                 "    -fx-font-size: 14px;\n" +
                 "    -fx-padding: 10 20 10 20;");
 
+        btnSignUp.setOnAction(e ->
+                new Signup());
+
 
         grid.getChildren().addAll(acctLabel, acctInput, pinLabel, pinInput, btnLogin, btnSignUp);
 
