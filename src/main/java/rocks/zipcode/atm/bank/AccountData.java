@@ -8,14 +8,16 @@ public final class AccountData {
     private final int id;
     private final String name;
     private final String email;
+    private final int pin;
 
-    private final int balance;
+    private final Float balance;
 
-    AccountData(int id, String name, String email, int balance) {
+    AccountData(int id, String name, String email, float balance, int pin) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.balance = balance;
+        this.pin = pin;
     }
 
     public int getId() {
@@ -30,15 +32,16 @@ public final class AccountData {
         return email;
     }
 
-    public int getBalance() {
+    public Float getBalance() {
         return balance;
+    }
+
+    public int getPin() {
+        return pin;
     }
 
     @Override
     public String toString() {
-        return "Account id: " + id + '\n' +
-                "Name: " + name + '\n' +
-                "Email: " + email + '\n' +
-                "Balance: " + balance;
+        return String.format("Account id: %d\nName: %s\nEmail: %s\nBalance: $%10.2f\n", id, name, email, balance);
     }
 }
