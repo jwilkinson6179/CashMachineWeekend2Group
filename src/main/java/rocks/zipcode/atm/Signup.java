@@ -4,7 +4,11 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class Signup
@@ -18,6 +22,7 @@ public class Signup
         Label topOfForm = new Label();
         Label nameForm = new Label();
         Label emailForm = new Label();
+        Label invalidMessage = new Label();
         TextField nameField = new TextField();
         TextField emailField = new TextField();
         Button submitButton = new Button("Submit");
@@ -66,13 +71,15 @@ public class Signup
         GridPane.setConstraints(nameForm, 0, 0);
         GridPane.setConstraints(nameField, 1, 0);
         emailForm.setText("E-mail: ");
+        invalidMessage.setText("Invalid Information");
+        invalidMessage.setTextFill(Color.web("red"));
         GridPane.setConstraints(emailForm, 0, 1);
         GridPane.setConstraints(emailField, 1, 1);
         GridPane.setConstraints(submitButton, 1, 2);
         GridPane.setConstraints(cancelButton, 1, 3);
         GridPane.setConstraints(basicOption, 3,0);
         GridPane.setConstraints(premiumOption,3, 1);
-
+        GridPane.setConstraints(invalidMessage, 3, 2);
         cancelButton.setOnAction(e -> window.close());
 
         grid.setAlignment(Pos.CENTER);
