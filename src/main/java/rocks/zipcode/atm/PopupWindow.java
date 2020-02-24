@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -24,6 +25,7 @@ public class PopupWindow {
 
         Label label = new Label();
         label.setText(warning);
+        label.setTextAlignment(TextAlignment.CENTER);
         label.setTextFill(Color.web("red"));
         label.setStyle(
                 "h1 { font-family: \"Arial Rounded MT Bold\", \"Helvetica Rounded\", Arial, sans-serif; font-size: 18px; font-style: normal; font-variant: normal; font-weight: bold; line-height: 36px; } h3 { font-family: \"Arial Rounded MT Bold\", \"Helvetica Rounded\", Arial, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: bold; line-height: 15px; } p { font-family: \"Arial Rounded MT Bold\", \"Helvetica Rounded\", Arial, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } blockquote { font-family: \"Arial Rounded MT Bold\", \"Helvetica Rounded\", Arial, sans-serif; font-size: 21px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 30px; } pre { font-family: \"Arial Rounded MT Bold\", \"Helvetica Rounded\", Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: bold; line-height: 26px; }"
