@@ -25,6 +25,7 @@ public class Signup
         grid.setPadding(new Insets(10, 100, 10, 10));
         grid.setVgap(8);
         grid.setHgap(10);
+        grid.setStyle("-fx-background-color: linear-gradient(to top, #97befc, #d8e2f2);");
         window.setTitle("New Customer Sign-Up");
         window.setMinWidth(350);
         window.setMinHeight(300);
