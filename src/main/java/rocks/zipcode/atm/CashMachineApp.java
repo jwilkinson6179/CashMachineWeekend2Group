@@ -45,7 +45,7 @@ public class CashMachineApp extends Application {
         Label welcomeLabel = new Label("Welcome back. "  );
         welcomeLabel.setStyle("-fx-font-size: 25px;" +
                 "-fx-font-weight: bold;" +
-                "-fx-text-fill: #ffd65b;");
+                "-fx-text-fill: #ffd65b,#ffef84, #f2ba44");
         GridPane.setConstraints(welcomeLabel, 2, 0);
         TextField welcomeInput = new TextField();
         GridPane.setConstraints(welcomeInput, 1, 0);
