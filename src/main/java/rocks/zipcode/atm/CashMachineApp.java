@@ -41,12 +41,23 @@ public class CashMachineApp extends Application {
 
 
 
+
+        Label welcomeLabel = new Label("Welcome back. "  );
+        welcomeLabel.setStyle("-fx-font-size: 25px;" +
+                "-fx-font-weight: bold;" +
+                "-fx-text-fill: #ffd65b;");
+        GridPane.setConstraints(welcomeLabel, 2, 0);
+        TextField welcomeInput = new TextField();
+        GridPane.setConstraints(welcomeInput, 1, 0);
+
         Button btnDeposit = new Button("Deposit");
         GridPane.setConstraints(btnDeposit, 2, 2);
         Button btnWithdraw = new Button("Withdraw");
         GridPane.setConstraints(btnWithdraw, 2, 3);
         Button btnLogout = new Button("Log Out");
         GridPane.setConstraints(btnLogout, 3, 20);
+
+
 
         btnDeposit.setStyle("    -fx-background-color: \n" +
                 "        linear-gradient(#ffd65b, #e68400),\n" +
@@ -85,7 +96,7 @@ public class CashMachineApp extends Application {
 
 
 
-        grid2.getChildren().addAll(field, btnDeposit, btnWithdraw, btnLogout);
+        grid2.getChildren().addAll(field,welcomeLabel, btnDeposit, btnWithdraw, btnLogout);
 
         btnDeposit.setOnAction(e -> {
             Float amount = Float.parseFloat(field.getText());
